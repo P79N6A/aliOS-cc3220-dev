@@ -20,3 +20,9 @@ GLOBAL_INCLUDES += ../../platform/mcu/cc3220/ti/devices
 
 $(NAME)_SOURCES     += ./board.c
 
+sal ?= 1
+ifeq (1,$(sal))
+$(NAME)_COMPONENTS += sal
+module ?= wifi.cc3220
+endif
+

@@ -49,6 +49,9 @@ int sal_device_init()
     extern int athost_sal_init(void);
     ret = athost_sal_init();
 #endif
+#ifdef DEV_SAL_CC3220
+    ret = cc3220_sal_init();
+#endif
 
     if (ret) {
         LOGE(TAG, "device init fail ret is %d\n", ret);

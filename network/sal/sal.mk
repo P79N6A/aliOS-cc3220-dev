@@ -19,4 +19,6 @@ else ifeq (wifi.esp8266,$(module))
 $(NAME)_COMPONENTS += sal.wifi.esp8266
 else ifeq (wifi.athost,$(module))
 $(NAME)_COMPONENTS += sal.wifi.athost
+else ifeq (wifi.cc3220,$(module))
+$(NAME)_COMPONENTS += sal.wifi.cc3220
 endif

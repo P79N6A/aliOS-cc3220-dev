@@ -88,11 +88,11 @@ void gpio_led_toggle(void)
 void gpio_button_init(void)
 {
     /* enable interrupt for the GPIO 13 (SW3) and GPIO 22 (SW2).              */
-    GPIO_setCallback(Board_BUTTON0, push_button_isr2);
-    GPIO_enableInt(Board_BUTTON0); // SW2
+    // GPIO_setCallback(Board_BUTTON0, push_button_isr2);
+    // GPIO_enableInt(Board_BUTTON0); // SW2
 
-    GPIO_setCallback(Board_BUTTON1, push_button_isr3);
-    GPIO_enableInt(Board_BUTTON1); // SW3
+    // GPIO_setCallback(Board_BUTTON1, push_button_isr3);
+    // GPIO_enableInt(Board_BUTTON1); // SW3
 }
 
 void board_init(void)

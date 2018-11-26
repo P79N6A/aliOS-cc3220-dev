@@ -21,11 +21,17 @@ uart_dev_t uart_0 = {
 };
 
 
-void message(const char *str){
-    if(str != NULL)
-    {
-        while(*str!='\0')
-        {
+void message(const char *str, uint32_t size){
+    // if(str != NULL)
+    // {
+    //     while(*str!='\0')
+    //     {
+    //         MAP_UARTCharPut(UARTA0_BASE,*str++);
+    //     }
+    // }
+    if(str != NULL){
+        int i;
+        for(i = 0;i<size;i++){
             MAP_UARTCharPut(UARTA0_BASE,*str++);
         }
     }
@@ -34,12 +40,12 @@ void message(const char *str){
 int32_t hal_uart_send(uart_dev_t *uart, const void *data, uint32_t size, uint32_t timeout)
 {
 	if(uart->port == 0)
-		message(data);
+		message(data, size);
 
     	return 0;
 }
 
-int32_t hal_uart_recv(uart_dev_t *uart, void *data, uint32_t expect_size, uint32_t *recv_size, uint32_t timeout)
+int32_t hal_uart_recv_II(uart_dev_t *uart, void *data, uint32_t expect_size, uint32_t *recv_size, uint32_t timeout)
 {
     int ttl_len = 0;
     char *buf = data;
