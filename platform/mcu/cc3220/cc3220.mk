@@ -4,7 +4,7 @@ NAME := cc3220s
 $(NAME)_TYPE := kernel
 
 $(NAME)_COMPONENTS += platform/arch/arm/armv7m
-$(NAME)_COMPONENTS += libc rhino hal common cli
+$(NAME)_COMPONENTS += libc rhino hal common cli 
 
 sal ?= 0
 module ?= wifi.cc3220
@@ -52,7 +52,7 @@ $(NAME)_SOURCES     :=
 
 $(NAME)_SOURCES     += ./ti/devices/cc32xx/driverlib/adc.c
 $(NAME)_SOURCES     += ./ti/devices/cc32xx/driverlib/camera.c
-$(NAME)_SOURCES     += ./ti/devices/cc32xx/driverlib/crc.c
+#$(NAME)_SOURCES     += ./ti/devices/cc32xx/driverlib/crc.c
 $(NAME)_SOURCES     += ./ti/devices/cc32xx/driverlib/flash.c
 $(NAME)_SOURCES     += ./ti/devices/cc32xx/driverlib/hwspinlock.c
 $(NAME)_SOURCES     += ./ti/devices/cc32xx/driverlib/i2s.c

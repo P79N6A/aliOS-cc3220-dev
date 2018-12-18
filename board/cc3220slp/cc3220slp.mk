@@ -25,4 +25,7 @@ ifeq (1,$(sal))
 $(NAME)_COMPONENTS += sal
 module ?= wifi.cc3220
 endif
-
+# Define default component testcase set
+ifneq (, $(findstring yts, $(BUILD_STRING)))
+TEST_COMPONENTS += basic api wifi_hal rhino yloop alicrypto cjson digest_algorithm hashtable
+endif

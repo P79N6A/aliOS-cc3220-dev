@@ -336,6 +336,21 @@ void SimpleLinkSocketTriggerEventHandler(SlSockTriggerEvent_t *pSlTriggerEvent)
 {
 	// Unused in this application
 }
+void convertIPStringtoInt(char *ipV4string, uint32_t *ipV4value){
+    int a[4];
+    char buffer[32];
+    int i;
+    char *token;
+
+    strncpy(buffer, ipV4string, sizeof(buffer));
+    token = strtok(buffer,".");
+    for(i = 0;i<3;i++){
+        
+        a[i] = strtoul(token,0,10);
+        token = strtok(NULL, ".");
+    }
+    *ipV4value = SL_IPV4_VAL(a[3],a[2],a[1],a[0]);
+}
 
 static int wifi_set_mode(hal_wifi_module_t *m, hal_wifi_mode_t mode)
 {
@@ -497,6 +512,7 @@ static int wifi_start(hal_wifi_module_t *m, hal_wifi_init_type_t *init_para)
 static int wifi_start_adv(hal_wifi_module_t *m,
                           hal_wifi_init_type_adv_t *init_para_adv)
 {
+    SL_IPV4_VAL(1,2,3,4);
     LOG("WiFi HAL %s not implemeted yet!\r\n", __func__);
     return 0;
 }
