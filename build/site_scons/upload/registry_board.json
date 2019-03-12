@@ -38,6 +38,9 @@
     "mk3239": [
         "stm32_stlink.json"
     ], 
+    "pca10040": [
+        "pca10040.json"
+    ], 
     "starterkit": [
         "starterkit_erase.json", 
         "stm32_stlink.json"

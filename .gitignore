@@ -43,3 +43,6 @@ projects/autogen/*
 *.SearchResults
 *.WK3
 .DS_Store
+.config
+.config.cmd
+.defconfig

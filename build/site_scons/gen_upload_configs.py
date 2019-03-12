@@ -25,6 +25,7 @@ registry_board = {
     'mk3165': ['stm32_stlink.json'],
     'mk3166': ['stm32_stlink.json'],
     'mk3239': ['stm32_stlink.json'],
+    'pca10040': ['pca10040.json'],
     'ALLOTHERS': ['stm32_stlink.json'],
 }
 
@@ -69,7 +70,12 @@ flash_configs['atsam'] = atsam
 # Flash configs for esp32* board
 esp32 = {
 'cmd': [
-    'esptool.py',
+    {
+        "Linux32": "esptool.py",
+        "Linux64": "esptool.py",
+        "OSX": "esptool.py",
+        "Win32": "esptool.exe"
+    },
     '--chip',
     'esp32',
     '--port', '@PORT@',
@@ -94,7 +100,12 @@ flash_configs['esp32'] = esp32
 # Flash configs for esp8266 board
 esp8266 = {
 'cmd': [
-    'esptool.py',
+    {
+        "Linux32": "esptool.py",
+        "Linux64": "esptool.py",
+        "OSX": "esptool.py",
+        "Win32": "esptool.exe"
+    },
     '--chip', 'esp8266',
     '--port', '@PORT@',
     '--baud', '921600',
@@ -112,7 +123,7 @@ flash_configs['esp8266'] = esp8266
 # Flash configs for esp8266 board
 mk3060 = {
 'cmd': [
-    '@AOSROOT@/build/aos_firmware_update.py',
+    '@AOSROOT@/build/scripts/aos_firmware_update.py',
     '@PORT@',
     '0x13200',
     '@AOSROOT@/out/@TARGET@/binary/@TARGET@.bin'
@@ -167,6 +178,18 @@ stm32_openocd = {
 ],
 }
 #flash_configs['stm32_openocd'] = stm32_openocd
+
+pca10040 = {
+'cmd': [
+    'python',
+    '@AOSROOT@/build/site_scons/jlink.py',
+    '-d', 'nRF52840_xxAA',
+    '-i', 'swd',
+    '-f', '@AOSROOT@/out/@TARGET@/binary/@TARGET@.bin',
+    '-p', '0x00010000'
+],
+}
+flash_configs['pca10040'] = pca10040
 
 def main():
     # Write flash commands to json file

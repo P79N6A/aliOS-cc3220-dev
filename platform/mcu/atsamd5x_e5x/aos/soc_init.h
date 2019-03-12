@@ -37,3 +37,7 @@ void _Error_Handler(char *, int);
 #endif
 
 #endif /* __SOC_INIT_H */
+<<<<<<< HEAD
+=======
+
+>>>>>>> AliOSOfficial/master
