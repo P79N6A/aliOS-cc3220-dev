@@ -3,5 +3,18 @@
     "aliosStudio.hardware.board": "starterkit",
     "aliosStudio.name": "helloworld",
     "aliosStudio.isAosSource": true,
-    "aliosStudio.sdkPath": "${workspaceRoot}"
+    "aliosStudio.sdkPath": "${workspaceRoot}",
+    "files.associations": {
+        "network.h": "c",
+        "ioctl.h": "c",
+        "in.h": "c",
+        "netmgr.h": "c",
+        "lib_printf.h": "c",
+        "semaphore.h": "c",
+        "digest_algorithm.h": "c",
+        "crc.h": "c",
+        "kvmgr.h": "c",
+        "yunit.h": "c",
+        "simplelink.h": "c"
+    }
 }
